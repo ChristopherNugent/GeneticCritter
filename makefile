@@ -10,6 +10,7 @@ $(OUT): ${SRC}
 
 clean:
 	rm $(OUT)
+	rm src/*.c
 
 run: $(OUT)
 	./$(OUT)
