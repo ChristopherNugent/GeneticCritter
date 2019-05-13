@@ -20,7 +20,7 @@ namespace GeneticCritter {
 		// uchar is used in place of byte
 		private uchar[] genome;
 
-        private Critter(){};
+        private Critter(){}
 
 		private Critter.empty() {
 			genome = new uchar[GENOME_SIZE];
