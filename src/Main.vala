@@ -4,7 +4,7 @@ namespace GeneticCritter {
     
     public void main() {
         var simulation = new CritterSimulation();
-        for (int i = 0; i < 1000000000; i++) {
+        for (int i = 0; i < 10000000; i++) {
             simulation.next();
         }
         var counts = simulation.get_team_counts();
