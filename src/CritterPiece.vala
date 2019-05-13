@@ -6,7 +6,7 @@
 namespace GeneticCritter {
 
 	struct CritterPiece {
-		private static team_counter = 1;
+		private static int team_counter = 1;
 
 		public Critter critter;
 		public int x;
