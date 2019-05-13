@@ -5,7 +5,7 @@
 
 namespace GeneticCritter {
 
-	class Critter : GLib.Object {
+	public class Critter : GLib.Object {
 
         /*
          * There are 4 adjacent tiles with 4 possible values each. This results in

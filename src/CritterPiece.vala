@@ -5,7 +5,7 @@
  */
 namespace GeneticCritter {
 
-	struct CritterPiece {
+	public class CritterPiece {
 		private static int team_counter = 1;
 
 		public Critter critter;
