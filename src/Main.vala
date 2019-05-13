@@ -1,11 +1,24 @@
+using Gee;
+
 namespace GeneticCritter { 
     
-    void main() {
-        var critter = new Critter.random();
-        while (true) {
-            var input = (uchar) Random.int_range(0, 256);
-            var action = critter.get_move(input);
-            stdout.printf("%s\n", action.to_string());
+    public void main() {
+        var simulation = new CritterSimulation();
+        for (int i = 0; i < 1000000000; i++) {
+            simulation.next();
         }
+        var counts = simulation.get_team_counts();
+        int max_count = max(counts.values);
+        stdout.printf("The best team now has %d members.\n", max_count);
+    }
+
+    private int max(Collection<int> items) {
+        int max = 0;
+        foreach (int item in items) {
+            if (item > max) {
+                max = item;
+            }
+        }
+        return max;
     }
 }
