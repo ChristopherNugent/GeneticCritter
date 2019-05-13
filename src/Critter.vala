@@ -35,7 +35,7 @@ namespace GeneticCritter {
 		public Critter.random() {
 			this.empty();
 			for (int i = 0; i < genome.length; i++) {
-				genome[i] = (uchar) Random.next_int();
+                genome[i] = (uchar) Random.next_int();
 			}
 		}
 
@@ -52,11 +52,12 @@ namespace GeneticCritter {
          * Get the response of this critter based on an enumerated board state
          */
 		public Action get_move(uchar input) {
-			uchar bucket = input / 4;
+            int bucket = input / 4;
 			uchar shift = 2 * (input % 4);
 			uchar mask = 3; // 5 => 0b11
 
-			uchar result = (genome[bucket] >> shift) & mask;
+            uchar bucket_content = genome[bucket];
+			uchar result = (bucket_content >> shift) & mask;
 			return (Action) result;
 		}
 	}
