@@ -7,6 +7,8 @@ namespace GeneticCritter {
 
 	public class Critter : GLib.Object {
 
+        public const double MUTATION_CHANCE = 0.1;
+
         /*
          * There are 4 adjacent tiles with 4 possible values each. This results in
          * 256 possible input states. With 4 possible responses, we need 2 bits to
@@ -18,6 +20,8 @@ namespace GeneticCritter {
 		// uchar is used in place of byte
 		private uchar[] genome;
 
+        private Critter(){};
+
 		private Critter.empty() {
 			genome = new uchar[GENOME_SIZE];
 		}
@@ -26,7 +30,11 @@ namespace GeneticCritter {
          * Create a Critter based on the infecting parent
          */
 		public Critter.from_parent(Critter parent) {
-			genome = parent.genome.copy();
+            genome = parent.genome.copy();
+            bool do_mutate = Random.next_double() <= MUTATION_CHANCE;
+            if (do_mutate) {
+                mutate();
+            }
 		}
 
         /**
