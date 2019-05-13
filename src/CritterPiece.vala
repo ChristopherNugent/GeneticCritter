@@ -19,7 +19,7 @@ namespace GeneticCritter {
 			this.x = x;
 			this.y = y;
 			direction = Random.int_range(0, 4);
-			team = team_counter++;
+			team = team_counter++;			
 		}
 
 		public CritterPiece.from_infection(CritterPiece victim, CritterPiece attacker) {
@@ -28,6 +28,10 @@ namespace GeneticCritter {
 			y = victim.y;
 			direction = victim.direction;
 			team = attacker.team;
+		}
+
+		public CritterPiece.empty() {
+			team = 0;
 		}
 	}
 }
