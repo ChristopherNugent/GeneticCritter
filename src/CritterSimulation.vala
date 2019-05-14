@@ -6,7 +6,7 @@ namespace GeneticCritter {
 
 		public const int[,] OFFSETS = {{1,0}, {0, 1}, {-1, 0}, {0, -1}};
 
-		public const int X_SIZE = 10000;
+		public const int X_SIZE = 100;
 		public const int Y_SIZE = 1000;
 		public const double DENSITY = 0.2;
 
@@ -38,7 +38,7 @@ namespace GeneticCritter {
 						board[y, x] = critter;
 						num_critters++;
 					} else {
-						board[y, x] = new CritterPiece.empty();
+						board[y, x] = null;
 					}
 				}
 			}
@@ -78,7 +78,7 @@ namespace GeneticCritter {
 		private Neighbor get_neighbor_type(int target_x, int target_y, int team) {
 			if (target_y < 0 || target_y >= Y_SIZE || target_x < 0 || target_x >= X_SIZE) {
 				return Neighbor.WALL;
-			} else if (board[target_y, target_x].team == 0) {
+			} else if (board[target_y, target_x] == null) {
 				return Neighbor.EMPTY;
 			} else if (board[target_y, target_x].team == team) {
 				return Neighbor.SAME;
@@ -95,11 +95,10 @@ namespace GeneticCritter {
 			var target_type = get_neighbor_type(target_x, target_y, piece.team);
 			if (action == Action.ATTACK && target_type == Neighbor.ENEMY) {
                 var target_piece = board[target_y, target_x];
-                //  stdout.printf("Team %d infects member of team %d\n", piece.team, target_piece.team);
                 target_piece.critter = new Critter.from_parent(piece.critter);
                 target_piece.team = piece.team;
 			} else if (action == Action.JUMP && target_type == Neighbor.EMPTY) {
-				board[piece.y, piece.x] = new CritterPiece.empty();
+				board[piece.y, piece.x] = null;
 				piece.x = target_x;
 				piece.y = target_y;
 				board[target_y, target_x] = piece;

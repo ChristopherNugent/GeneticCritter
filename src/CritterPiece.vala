@@ -6,7 +6,7 @@
 namespace GeneticCritter {
 
 	public class CritterPiece {
-		private static int team_counter = 1;
+		private static int team_counter = 0;
 
 		public Critter critter;
 		public int x;
@@ -28,10 +28,6 @@ namespace GeneticCritter {
 			y = victim.y;
 			direction = victim.direction;
 			team = attacker.team;
-		}
-
-		public CritterPiece.empty() {
-			team = 0;
 		}
 	}
 }
