@@ -6,8 +6,8 @@ namespace GeneticCritter {
 
 		public const int[,] OFFSETS = {{1,0}, {0, 1}, {-1, 0}, {0, -1}};
 
-		public const int X_SIZE = 100;
-		public const int Y_SIZE = 100;
+		public const int X_SIZE = 10000;
+		public const int Y_SIZE = 1000;
 		public const double DENSITY = 0.2;
 
 		/*
@@ -16,7 +16,7 @@ namespace GeneticCritter {
 		 */
 		private CritterPiece[,] board;
 		private GLib.Queue<CritterPiece> movement_queue;
-		private int num_critters;
+		public int num_critters { get; private set; }
 
 		public CritterSimulation() {
 			board = new CritterPiece[Y_SIZE, X_SIZE];
