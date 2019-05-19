@@ -1,6 +1,6 @@
-namespace GeneticCritter { 
-    
-    public enum Action { 
+namespace GeneticCritter {
+
+    public enum Action {
         ATTACK,
         JUMP,
         LEFT,

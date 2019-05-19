@@ -5,9 +5,9 @@
  * These are converted to integers and shifted into a number. It is expected
  * to occupy at most 2 bits. DO NOT modify the number of elements in this enum.
  */
-namespace GeneticCritter { 
-    
-    enum Neighbor { 
+namespace GeneticCritter {
+
+    enum Neighbor {
         // DO NOT CHANGE THE NUMBER OF ELEMENTS
         SAME,
         ENEMY,
